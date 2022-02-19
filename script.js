@@ -159,12 +159,10 @@ function check() {
       res = false;
       state.innerHTML += "game over";
       break;
+    } else {
+      res = false;
+      state.innerHTML += "you won";
+      break;
     }
-    //   if (irisesState[key] == true) {
-    //     state.innerHTML += "+";
-    //   } else {
-    //     state.innerHTML += "-";
-    //   }
-    // }
   }
 }
