@@ -157,12 +157,11 @@ function check() {
   for (const key in irisesState) {
     if (!irisesState[key]) {
       res = false;
-      state.innerHTML += "game over";
-      break;
+
+      return (state.innerHTML += "game over");
     } else {
-      res = false;
-      state.innerHTML += "you won";
-      break;
+      res = true;
     }
   }
+  state.innerHTML += "you won";
 }
