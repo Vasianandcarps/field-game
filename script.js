@@ -21,7 +21,7 @@ console.log(irisesState);
 //проверка, попадает ли на поле f цветок с координатами left, top
 function onField(f, left, top) {
   let field = getCoords(f); // получили координаты top и left, а также width и height текущего поля f
-  
+
   if (
     left > field.left &&
     left < field.left + field.width &&
@@ -103,6 +103,32 @@ function go(event) {
     pink.style.border = "none";
     yellow.style.border = "none";
     //реализовать - если цветок находится на своем поле, то  irisesState[flower.id] = true, иначе - irisesState[flower.id] = false
+    let left = event.pageX - shiftX;
+    let top = event.pageY - shiftY;
+    //реализовать - если цветок находится на своем поле, то  irisesState[flower.id] = true, иначе - irisesState[flower.id] = false
+    if (onField(tan, left, top)) {
+      if (breed == "tan") {
+        irisesState[flower.id] = true;
+      } else {
+        irisesState[flower.id] = false;
+      }
+    }
+
+    if (onField(pink, left, top)) {
+      if (breed == "pink") {
+        irisesState[flower.id] = true;
+      } else {
+        irisesState[flower.id] = false;
+      }
+    }
+
+    if (onField(pink, left, top)) {
+      if (breed == "yellow") {
+        irisesState[flower.id] = true;
+      } else {
+        irisesState[flower.id] = false;
+      }
+    }
     document.onmousemove = null;
     flower.onmouseup = null;
   }
@@ -127,4 +153,11 @@ function getCoords(elem) {
 function check() {
   // Проверка, все ли ирисы на своем поле
   // реализовать - если в массиве irisesState хотя бы одно значение false, то выдавать сообщение "Error", если все true - то "OK". Сообщение писать в state
+  for (const key in irisesState) {
+    if (irisesState[key] == true) {
+      state.innerHTML += "+";
+    } else {
+      state.innerHTML += "-";
+    }
+  }
 }
