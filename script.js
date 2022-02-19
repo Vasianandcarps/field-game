@@ -122,7 +122,7 @@ function go(event) {
       }
     }
 
-    if (onField(pink, left, top)) {
+    if (onField(yellow, left, top)) {
       if (breed == "yellow") {
         irisesState[flower.id] = true;
       } else {
@@ -153,11 +153,18 @@ function getCoords(elem) {
 function check() {
   // Проверка, все ли ирисы на своем поле
   // реализовать - если в массиве irisesState хотя бы одно значение false, то выдавать сообщение "Error", если все true - то "OK". Сообщение писать в state
+  let res = true;
   for (const key in irisesState) {
-    if (irisesState[key] == true) {
-      state.innerHTML += "+";
-    } else {
-      state.innerHTML += "-";
+    if (!irisesState[key]) {
+      res = false;
+      state.innerHTML += "game over";
+      break;
     }
+    //   if (irisesState[key] == true) {
+    //     state.innerHTML += "+";
+    //   } else {
+    //     state.innerHTML += "-";
+    //   }
+    // }
   }
 }
